@@ -1,21 +1,21 @@
-REM Set Windows Module Installer service (TrustedInstaller) to start automatically
 SC config trustedinstaller start=auto
+REM Set Windows Module Installer service (TrustedInstaller) to start automatically
 
-REM Stop Windows Update service and Background Intelligent Transfer Service
 net stop wuauserv
 net stop bits
+REM Stop Windows Update service and Background Intelligent Transfer Service
 
-REM Change directory to the Windows directory
 cd %windir%
+REM Change directory to the Windows directory
 
-REM Rename SoftwareDistribution folder to SoftwareDistribution.old
 Ren SoftwareDistribution SoftwareDistribution.old
+REM Rename SoftwareDistribution folder to SoftwareDistribution.old
 
-REM Use DISM tool to scan and repair Windows image
 dism /online /cleanup-image /restorehealth
+REM Use DISM tool to scan and repair Windows image
 
-REM Run System File Checker to scan and repair corrupted system files
 sfc /scannow
+REM Run System File Checker to scan and repair corrupted system files
 
-REM Restart the computer
 shutdown /r /t 0
+REM Restart the computer
