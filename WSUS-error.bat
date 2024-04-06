@@ -3,7 +3,7 @@ REM Disable the echoing of commands in the batch script
 
 echo Windows update error fix script 
 REM Display a message indicating the purpose of the script
-REM This script can bge used to fix the errors with code 0x80244011, 0x800d0954
+REM This script can bge used to fix the errors with code 0x80244011, 0x800f0954
 
 net stop wuauserv
 REM Stop the Windows Update service to prevent updates during script execution
