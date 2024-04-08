@@ -7,8 +7,6 @@ while ($true) {
     switch ($option) {
         '1' {
             Clear-Host
-            # Install .NET runtime
-            winget install Microsoft.DotNet.Runtime.$version
             # Install .NET Desktop runtime
             winget install Microsoft.DotNet.DesktopRuntime.$version
         } '2' {
