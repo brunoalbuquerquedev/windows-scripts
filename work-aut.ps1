@@ -1,13 +1,13 @@
 function domainChange {
     try {
         # Prompt the user to enter 'r' to leave the domain or 'a' to enter the domain
-        $changeOption = Read-Host "Enter [r] to leave the domain [a] to enter the domain"
+        $changeOption = Read-Host "Enter [l] to leave the domain [e] to enter the domain"
 
         # Check the user input
-        if ($changeOption -eq 'r') {
+        if ($changeOption -eq 'l') {
             # If 'r' is entered, remove the computer from the domain
             Remove-Computer -UnjoinDomainCredential (Get-Credential) -WorkgroupName "WorkGroup" -Restart
-        } elseif ($changeOption -eq 'a') {
+        } elseif ($changeOption -eq 'e') {
             # Prompt the user to enter the domain name
             [string]$domain = Read-Host "Enter the domain name"
             # If 'a' is entered, add the computer to a domain
@@ -18,7 +18,7 @@ function domainChange {
         }
     } catch {
         Write-Host "The operation could not be completed."
-        Write-Host "$($error[0])"
+        Write-Host "$($_.Exception.Message)"
     }
 }
 
@@ -49,7 +49,7 @@ function rdpPortChange {
         }
     } catch {
         Write-Host "An error has occurred and the operation could not be completed."
-        Write-Host "$($error[0])"
+        Write-Host "$($_.Exception.Message)"
     }
 }
 
@@ -68,7 +68,7 @@ function deletePrinters {
         Write-Host "All printers removed."
     } catch {
         Write-Host "An error has occurred and the operation could not be completed."
-        Write-Host "$($error[0])"
+        Write-Host "$($_.Exception.Message)"
     }
 }
 
